@@ -279,3 +279,30 @@ function slider() {
   });
 }
 slider();
+
+//Lazy Images
+
+const targetImg = document.querySelectorAll('img[data-src]');
+//console.log(targetImg);
+
+const loadingImages = function (entries, observer) {
+  const [entry] = entries;
+  //console.log(entry);
+  if (!entry.isIntersecting) return;
+  //replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const lazyimgObserver = new IntersectionObserver(loadingImages, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+targetImg.forEach((img) => lazyimgObserver.observe(img));
