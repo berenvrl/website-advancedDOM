@@ -6,7 +6,7 @@ Marketing webpage made by JS, HTML and CSS with applying advanced DOM manipulati
 
 - JavaScript, HTML, CSS
 
-# Reach Bankist Website
+# Reach Project
 
 You can reach the project here, [Website](https://website-advanceddom.netlify.app/)
 
